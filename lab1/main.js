@@ -72,6 +72,8 @@ function printGoals1() {
         }
     })
 }
+
+
 printGoals1()
 console.log("Real Madrid:")
 function printGoals2() {
