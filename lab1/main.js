@@ -57,11 +57,69 @@ function printGoals() {
         console.log(`Real Madrid:Cầu thủ ${item.player} đã ghi bàn lúc ${item.time} phút !`)
     })
 }
-printGoals()
-
+printGoals();
 // 7. In ra đội chiến thắng không sử dụng if/else hoặc toán tử 3 ngôi
 const winningTeam = Math.min(team1, team2) < draw ? (team1 < team2 ? "Bayern Munich" : "Real Madrid") : "Hòa";
 console.log(`Kết quả: ${winningTeam}!!!`);
 
+//Bài 2:
+console.log("Bài 2:")
+console.log("Bayern Munich:")
+function printGoals1() {
+    game.goals.team1.forEach((item, index) => {
+        for (let i = 0; i < game.goals.team1.length; i++) {
+            console.log(`Goal ${index + 1}: ${item.player}`);
+        }
+    })
+}
+printGoals1()
+console.log("Real Madrid:")
+function printGoals2() {
+    game.goals.team2.forEach((item, index) => {
 
+        for (let i = 0; i < game.goals.team2.length; i++) {
+            console.log(`Goal ${index + 1}: ${item.player}`);
+        }
+    })
+}
+printGoals2()
+console.log('Kết quả trận đấu:')
+let team1Score = 0;
+let team2Score = 0;
+for (let i = 0; i < game.goals.team1.length; i++) {
+    team1Score += 1;
+};
+
+for (let i = 0; i < game.goals.team2.length; i++) {
+    team2Score += 1;
+};
+
+console.log(`Bayern Munich: ${team1Score}`);
+console.log(`Real Madrid: ${team2Score}`);
+
+const { teamBayern, Hoa, teamMadrid } = game.odds;
+
+console.log(`Tỉ lệ thắng của ${game.team1.name}: ${team1}`);
+console.log(`Tỉ lệ hòa: ${draw}`);
+console.log(`Tỉ lệ thắng của ${game.team2.name}: ${team2}`);
+
+const scorers = {};
+
+game.goals.team1.forEach((item) => {
+  if (scorers[item.player]) {
+    scorers[item.player] += 1;
+  } else {
+    scorers[item.player] = 1;
+  }
+});
+
+game.goals.team2.forEach((item) => {
+  if (scorers[item.player]) {
+    scorers[item.player] += 1;
+  } else {
+    scorers[item.player] = 1;
+  }
+});
+
+console.log(scorers);
 
